@@ -1,0 +1,51 @@
+
+class Coffee {
+  String name;
+  String size;
+  double price;
+  int _sugarLevel; // Private field
+
+  // Constructor
+  Coffee(this.name, this.size, this.price, this._sugarLevel);
+
+  // Read the private sugar level
+  int getSugarLevel() {
+    return _sugarLevel;
+  }
+
+  // Add one level of sugar
+  void addSugar() {
+    if (_sugarLevel < 5) {
+      _sugarLevel++;
+    }
+  }
+
+  // Display coffee information
+  void displayInfo() {
+    print("Coffee: $name");
+    print("Size: $size");
+    print("Price: P$price");
+    print("Sugar Level: $_sugarLevel");
+    print("--------------------");
+  }
+}
+
+void main() {
+  // Create two coffee objects
+  Coffee coffee1 = Coffee("Iced Latte", "Medium", 120.00, 2);
+  Coffee coffee2 = Coffee("Cappuccino", "Large", 150.00, 3);
+
+  // Store objects in a List
+  List<Coffee> coffees = [coffee1, coffee2];
+
+  // Display information about each coffee
+  for (Coffee coffee in coffees) {
+    coffee.displayInfo();
+  }
+
+  // Test encapsulation and the addSugar method
+  coffee1.addSugar();
+
+  print("Iced Latte sugar level after adding sugar: "
+      "${coffee1.getSugarLevel()}");
+}
